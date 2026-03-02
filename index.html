@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html data-theme="corporate" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job_Tracer</title>
+
+    <!--Daisi Ui-->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+<!--Tailwind-->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!--Font Awsome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class=" w-11/12 md:w-10/12 mx-auto py-10">
+    <header>
+          <div class="w-11/12 md:w-10/12 mx-auto py-10">
+
+   
+    <h1 class="text-3xl font-bold mb-8">Job Application Tracker</h1>
+
+    
+    <div class="stats shadow w-full mb-10">
+
+      <div class="stat">
+        <div class="stat-title">Total</div>
+        <div id="total-count" class="stat-value">8</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-title">Interview</div>
+        <div id="interview-count" class="stat-value text-success">0</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-title">Rejected</div>
+        <div id="rejected-count" class="stat-value text-error">0</div>
+      </div>
+
+    </div>
+    </header>
+
+    <!--Jobs-->
+
+    <section>
+         <div>
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold">Available Jobs</h2>
+        <span id="tab-job-count" class="text-sm text-gray-500">8 jobs</span>
+      </div>
+
+      
+      <div role="tablist" class="tabs tabs-boxed mb-6 w-fit">
+        <a role="tab" class="tab tab-active" id="tab-all">All</a>
+        <a role="tab" class="tab" id="tab-interview">Interview</a>
+        <a role="tab" class="tab" id="tab-rejected">Rejected</a>
+      </div>
+
+      <!--Job-1-->
+      <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="mobile-first-corp">
+  
+  <button onclick="deleteJob('mobile-first-corp')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">Mobile First Corp</h2>
+    <p class="text-sm text-gray-500">React Native Developer</p>
+    <p class="text-sm mt-2">Remote • Full-time • $130,000 - $175,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">Design modern, user-focused websites for high-profile clients.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('mobile-first-corp', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('mobile-first-corp', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+
+        <!--Job-2-->
+         <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="webflow-agency">
+  
+  <button onclick="deleteJob('webflow-agency')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">WebFlow Agency</h2>
+    <p class="text-sm text-gray-500">Web Designer & Developer</p>
+    <p class="text-sm mt-2">Remote • Part-time • $80,000 - $120,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">
+      Design modern, user-focused websites for high-profile clients.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('webflow-agency', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('webflow-agency', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+
+        <!--Job-3-->
+
+                <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="dataviz-solutions">
+  
+  <button onclick="deleteJob('dataviz-solutions')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">DataViz Solutions</h2>
+    <p class="text-sm text-gray-500">Data Visualization Specialist</p>
+    <p class="text-sm mt-2">Full-time • $125,000 - $165,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">Turn complex data into clear, interactive dashboards and reports.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('dataviz-solutions', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('dataviz-solutions', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+
+        <!--Job-4-->
+        <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="cloudfirst-inc">
+  
+  <button onclick="deleteJob('cloudfirst-inc')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">CloudFirst Inc</h2>
+    <p class="text-sm text-gray-500">Backend Developer</p>
+    <p class="text-sm mt-2">Full-time • $140,000 - $190,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">Develop scalable backend systems using modern cloud technologies.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('cloudfirst-inc', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('cloudfirst-inc', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+
+        <!--Job-5-->
+
+                <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="innovation-labs">
+  
+  <button onclick="deleteJob('innovation-labs')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">Innovation Labs</h2>
+    <p class="text-sm text-gray-500">UI/UX Engineer</p>
+    <p class="text-sm mt-2">Full-time • $110,000 - $150,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">Craft intuitive and engaging interfaces for next-generation products.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('innovation-labs', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('innovation-labs', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+
+        <!--Job-6-->
+
+        <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="nextgen-ai">
+  
+  <button onclick="deleteJob('nextgen-ai')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">NextGen AI</h2>
+    <p class="text-sm text-gray-500">Machine Learning Engineer</p>
+    <p class="text-sm mt-2">Full-time • $160,000 - $210,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">Build intelligent systems powered by real-time machine learning models.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('nextgen-ai', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('nextgen-ai', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+
+        <!--job-7-->
+
+        
+        <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="securenet">
+  
+  <button onclick="deleteJob('securenet')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">SecureNet</h2>
+    <p class="text-sm text-gray-500">Cybersecurity Analyst</p>
+    <p class="text-sm mt-2">Full-time • $115,000 - $155,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">Monitor, detect, and prevent advanced security threats across systems.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('securenet', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('securenet', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+        
+<!--Job-8-->
+
+      <div class="card bg-base-100 shadow p-4 mb-4 w-full relative" id="greentech">
+  
+  <button onclick="deleteJob('greentech')" class="absolute top-2 right-2 text-gray-400 hover:text-error">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+
+  <div class="card-body">
+    <h2 class="card-title">SecureNet</h2>
+    <p class="text-sm text-gray-500">Software Engineer</p>
+    <p class="text-sm mt-2">Full-time • $105,000 - $145,000</p>
+    <div class="mt-2">
+      <span class="badge bg-primary/10">NOT APPLIED</span>
+    </div>
+    <p class="text-sm mt-2">Develop sustainable tech solutions to reduce environmental impact.</p>
+    <div class="card-actions mt-4">
+      <button class="btn btn-sm btn-success btn-outline" onclick="updateStatus('greentech', 'interview')">
+        Interview
+      </button>
+      <button class="btn btn-sm btn-error btn-outline" onclick="updateStatus('greentech', 'rejected')">
+        Rejected
+      </button>
+    </div>
+  </div>
+</div>
+
+      <div id="empty-state" class="hidden flex flex-col items-center justify-center bg-base-100 p-10 rounded-lg shadow mt-6">
+        <img src="jobs.png" class="w-24 mb-4" alt="No Jobs">
+        <h3 class="text-lg font-semibold">No jobs available</h3>
+        <p class="text-sm text-gray-500">Check back soon for new job opportunities</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <script src="scrept.js"></script>
+</body>
+</html>
